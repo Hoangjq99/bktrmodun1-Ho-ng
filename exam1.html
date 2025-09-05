@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function cau1() {
+        let n = parseInt(prompt("Nhập số phần tử của mảng (tối đa 50): "));
+
+        if (n > 50 || n <= 0) {
+          console.log("Số phần tử không hợp lệ!");
+          return;
+        }
+
+        let arr = [];
+        for (let i = 0; i < n; i++) {
+          let x = parseInt(prompt("Nhập phần tử thứ " + (i + 1) + ": "));
+          arr.push(x);
+        }
+
+        // Hiển thị mảng
+        console.log("Mảng vừa nhập: ", arr);
+
+        // Tính trung bình cộng các số chia hết cho 3
+        let tong = 0,
+          dem = 0;
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] % 3 === 0) {
+            tong += arr[i];
+            dem++;
+          }
+        }
+
+        if (dem > 0) {
+          console.log(
+            "Trung bình cộng các số chia hết cho 3 là: " + tong / dem
+          );
+        } else {
+          console.log("Trong mảng không có số nào chia hết cho 3!");
+        }
+      }
+
+      cau1();
+    </script>
+  </body>
+</html>
