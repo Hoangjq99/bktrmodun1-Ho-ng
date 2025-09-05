@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quản lý Công nhân</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 80%;
+        margin: 20px auto;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      h2 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Danh sách Công nhân</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Họ và tên</th>
+          <th>Ngày sinh</th>
+          <th>Địa chỉ</th>
+          <th>Lương</th>
+          <th>Chức vụ</th>
+        </tr>
+      </thead>
+      <tbody id="list"></tbody>
+    </table>
+
+    <script>
+      // Đối tượng Công nhân
+      class CongNhan {
+        constructor(stt, hoTen, ngaySinh, diaChi, luong, chucVu) {
+          this.stt = stt;
+          this.hoTen = hoTen;
+          this.ngaySinh = ngaySinh;
+          this.diaChi = diaChi;
+          this.luong = luong;
+          this.chucVu = chucVu;
+        }
+      }
+
+      // Danh sách công nhân
+      let dsCongNhan = [
+        new CongNhan(
+          1,
+          "Nguyễn Văn A",
+          "01/01/1990",
+          "Hà Nội",
+          8000000,
+          "Thợ chính"
+        ),
+        new CongNhan(
+          2,
+          "Trần Thị B",
+          "12/05/1992",
+          "Hải Phòng",
+          7500000,
+          "Thợ phụ"
+        ),
+        new CongNhan(
+          3,
+          "Lê Văn C",
+          "20/07/1988",
+          "Đà Nẵng",
+          9000000,
+          "Quản đốc"
+        ),
+        new CongNhan(
+          4,
+          "Phạm Văn D",
+          "15/03/1995",
+          "TP.HCM",
+          7000000,
+          "Thợ phụ"
+        ),
+      ];
+
+      // Sắp xếp theo họ và tên (alphabet)
+      dsCongNhan.sort((a, b) => a.hoTen.localeCompare(b.hoTen));
+
+      // Hiển thị ra bảng
+      function hienThiDanhSach() {
+        let tbody = document.getElementById("list");
+        tbody.innerHTML = "";
+        dsCongNhan.forEach((cn) => {
+          let row = `<tr>
+          <td>${cn.stt}</td>
+          <td>${cn.hoTen}</td>
+          <td>${cn.ngaySinh}</td>
+          <td>${cn.diaChi}</td>
+          <td>${cn.luong.toLocaleString()} VND</td>
+          <td>${cn.chucVu}</td>
+        </tr>`;
+          tbody.innerHTML += row;
+        });
+      }
+
+      hienThiDanhSach();
+    </script>
+  </body>
+</html>
