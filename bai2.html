@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    hello world
+    <script>
+      function laSoHoanHao(num) {
+        if (num <= 0) return false;
+
+        let tong = 0;
+        for (let i = 1; i < num; i++) {
+          if (num % i === 0) {
+            tong += i;
+          }
+        }
+
+        return tong === num;
+      }
+
+      // Kiểm thử
+      console.log("6 -> " + laSoHoanHao(6)); // True
+      console.log("9 -> " + laSoHoanHao(9)); // False
+      console.log("28 -> " + laSoHoanHao(28)); // True
+    </script>
+  </body>
+</html>
